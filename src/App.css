@@ -115,3 +115,42 @@ button.roll-dice:hover {
   white-space: nowrap;
   border: 0;
 }
+
+@media (max-width: 600px) {
+  .dice-container button {
+    height: 40px;
+    width: 40px;
+    font-size: 1.25rem;
+  }
+
+  button.roll-dice {
+    padding: 5px 16px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .dice-container button {
+    height: 50px;
+    width: 50px;
+    font-size: 1.5rem;
+  }
+
+  button.roll-dice {
+    padding: 6px 20px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .dice-container button {
+    height: 60px;
+    width: 60px;
+    font-size: 1.75rem;
+  }
+
+  button.roll-dice {
+    padding: 8px 24px;
+    font-size: 1.2rem;
+  }
+}
