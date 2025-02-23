@@ -6,8 +6,15 @@ import { DieType } from './dice.types';
 
 function App() {
   const [dice, setDice] = useState<DieType[]>(generateAllDice());
-
-  const buttomElements = dice.map((die) => <Die value={die.value} />);
+  const buttomElements = dice.map((die) => (
+    <Die
+      key={die.id}
+      id={die.id}
+      value={die.value}
+      isHeld={die.isHeld}
+      click={() => handleDieState(die.id)}
+    />
+  ));
 
   function generateAllDice() {
     return Array.from({ length: 10 }).map(() => ({
@@ -15,6 +22,14 @@ function App() {
       isHeld: false,
       value: Math.ceil(Math.random() * 6),
     }));
+  }
+
+  function handleDieState(id: string) {
+    setDice((preDice) =>
+      preDice.map((die) =>
+        die.id === id ? { ...die, isHeld: !die.isHeld } : die,
+      ),
+    );
   }
 
   function rollDice() {
